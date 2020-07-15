@@ -1,27 +1,36 @@
 package com.exp.codwars.wordcount;
 
-import javax.swing.text.ParagraphView;
-import java.security.PrivateKey;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EnglishWords {
 
-    private String paragraph = "We have been made aware of three customers who tested positive for Covid-19 and recently traveled on Endeavor from Atlanta to Albany. We are following the guidance of local healthcare officials and the Centers for Disease Control and Prevention. The health and safety of our customers and crews is our top priority.";
+    private Map<Character, Integer> map = new HashMap<>();
 
-    private char[] charParagraph = paragraph
-            .toLowerCase()
-            .toCharArray();
+    public EnglishWords() {
+        super();
+    }
 
-    private void setCharParagraph() {
+    public void takeCharParagraph(char[] charParagraph) {
         for (char c : charParagraph) {
-            int count = 0;
-            //
+            if (Character.isLetter(c)) {
+                if (map.containsKey(c)) {
+                    map.put(c, map.get(c) + 1);
+                } else {
+                    map.put(c, 1);
+                }
+            }
+        }
 
-            //
-
+        for (Map.Entry<Character, Integer> entry : map.entrySet()) {
+            System.out.println("letter: " + entry.getKey() + " number of: " + entry.getValue() + "\n");
         }
     }
 
-    private void equalsChar(char c){
-        if (c[0]==)
+    public void takeCharParagraph(String paragraph) {
+        char[] charParagraph = paragraph
+                .toLowerCase()
+                .toCharArray();
+        takeCharParagraph(charParagraph);
     }
 }
