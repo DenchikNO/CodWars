@@ -2,8 +2,6 @@ package com.exp.codwars.person;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.security.PublicKey;
 import java.util.HashMap;
 import java.util.Map;
 

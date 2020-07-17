@@ -3,7 +3,7 @@ package com.exp.codwars.vowelcount;
 import java.util.HashSet;
 import java.util.Set;
 
-public class VowelsSet implements VowelsCounter{
+public class VowelsSet implements VowelsCounter {
 
     private static Set<Character> VOWELS = new HashSet<>(5);
 
@@ -24,7 +24,7 @@ public class VowelsSet implements VowelsCounter{
         int count = 0;
 
         for (char c : str.toLowerCase()
-                .toCharArray()) {
+                         .toCharArray()) {
             //count += vowels.contains(c) ? 1 : 0;
 
             if (VOWELS.contains(c)) {

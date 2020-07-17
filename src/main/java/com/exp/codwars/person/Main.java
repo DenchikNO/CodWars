@@ -1,35 +1,33 @@
 package com.exp.codwars.person;
 
-import org.springframework.beans.factory.support.ManagedArray;
-import org.springframework.cglib.core.MethodWrapper;
-
 import java.security.PrivateKey;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
         String str = "Boris;1;26\nDenis;1;21";
 
         List<Person> personList = new ArrayList<>();
 
-        String[] strTwo = str.split("\n");
+        String[] strSplit = str.split("\n");
 
-        for(String person : strTwo){
-            Person person1 = new Person();
-            personList.add(person1);
+        for (String s : strSplit) {
+            Person person = new Person();
+            personList.add(person);
 
-            String[] str3 = person.split(";");
+            String[] strSplitMore = s.split(";");
 
-            person1.setName(str3[0]);
+            person.setName(strSplitMore[0]);
 
-            if (str3[1].equals("1")){
-                person1.setSex(SexType.MALE);
+            if (strSplitMore[1].equals("1")) {
+                person.setSex(SexType.MALE);
             } else {
-                person1.setSex(SexType.FEMALE);
+                person.setSex(SexType.FEMALE);
             }
 
-            person1.setAge(Integer.parseInt(str3[2]));
+            person.setAge(Integer.parseInt(strSplitMore[2]));
 
         }
     }
