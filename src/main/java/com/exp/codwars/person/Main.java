@@ -1,34 +1,27 @@
 package com.exp.codwars.person;
 
-import java.security.PrivateKey;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
 
         String str = "Boris;1;26\nDenis;1;21";
+        PersonParsing personParsing = new PersonParsing();
+        List<Person> list = personParsing.parse(str);
 
-        List<Person> personList = new ArrayList<>();
+        String phone = "Boris;+375333344546\nDenis;+375291178425";
+        PhoneParsing phoneParsing = new PhoneParsing();
+        Map<String, String> map = phoneParsing.phoneParse(phone);
 
-        String[] strSplit = str.split("\n");
-
-        for (String s : strSplit) {
-            Person person = new Person();
-            personList.add(person);
-
-            String[] strSplitMore = s.split(";");
-
-            person.setName(strSplitMore[0]);
-
-            if (strSplitMore[1].equals("1")) {
-                person.setSex(SexType.MALE);
-            } else {
-                person.setSex(SexType.FEMALE);
+        for (Person person : list) {
+//            if (map.containsKey(person.getName())) {
+            String a = map.get(person.getName());
+            if (a != null) {
+//                String a = map.get(person.getName());
+                person.getMap().put(ContactType.PHONE, a);
             }
-
-            person.setAge(Integer.parseInt(strSplitMore[2]));
-
+//            }
         }
     }
 }
