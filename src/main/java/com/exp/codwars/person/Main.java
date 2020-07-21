@@ -15,13 +15,21 @@ public class Main {
         Map<String, String> map = phoneParsing.phoneParse(phone);
 
         for (Person person : list) {
-//            if (map.containsKey(person.getName())) {
             String a = map.get(person.getName());
             if (a != null) {
-//                String a = map.get(person.getName());
                 person.getMap().put(ContactType.PHONE, a);
             }
-//            }
+        }
+
+        String site = "Boris;https://vk.com/boris.lutovich\nDenis;https://vk.com/denchik_no";
+        SiteParsing siteParsing = new SiteParsing();
+        Map<String, String> mapSite = siteParsing.siteParse(site);
+
+        for (Person person : list) {
+            String a = mapSite.get(person.getName());
+            if (a != null) {
+                person.getMap().put(ContactType.SITE, a);
+            }
         }
     }
 }
