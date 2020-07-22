@@ -5,11 +5,11 @@ import java.util.Map;
 
 public class MapReverse {
 
-    public static <V, K> Map<V, K> invert(Map<K, V> map) {
+    public static Map<Integer, String> invert(Map<String, Integer> map) {
 
-        Map<V, K> inv = new HashMap<>();
+        Map<Integer, String> inv = new HashMap<>();
 
-        for (Map.Entry<K, V> entry : map.entrySet()) {
+        for (Map.Entry<String, Integer> entry : map.entrySet()) {
             inv.put(entry.getValue(), entry.getKey());
         }
         return inv;

@@ -2,6 +2,7 @@ package com.exp.codwars.person;
 
 import lombok.Getter;
 import lombok.Setter;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,9 +16,9 @@ public class Person {
 
     private Map<ContactType, String> map = new HashMap<>();
 
-    public Person(){
+    public Person() {
         super();
-    };
+    }
 
     public Person(String name, SexType sex, int age) {
         this.name = name;

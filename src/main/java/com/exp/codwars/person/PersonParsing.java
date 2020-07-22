@@ -5,7 +5,7 @@ import java.util.List;
 
 public class PersonParsing {
 
-    public List<Person> parse(String str){
+    public List<Person> parse(String str) {
         List<Person> personList = new ArrayList<>();
 
         String[] strSplit = str.split("\n");
@@ -29,5 +29,4 @@ public class PersonParsing {
         }
         return personList;
     }
-
 }
