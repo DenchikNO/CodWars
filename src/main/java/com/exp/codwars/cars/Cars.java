@@ -37,7 +37,8 @@ public class Cars {
             Collection<Car> cars = entry.getValue();
             Map<Integer, String> mapOne = new HashMap<>();
             for (Car car : cars) {
-                int year = car.getYear();
+                int year = car.getYear();//сейчас перезаписывает год, а нужно сделать чтобы выводилось все.
+                // Использовать часть кода из метода выше
                 mapOne.put(year, car.getName());
             }
             mapTwo.put(model, mapOne);
