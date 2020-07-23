@@ -5,5 +5,6 @@ public class Main {
         Cars cars = new Cars();
         cars.makeGroup();
         cars.yearPlanking();
+        cars.yearUpPlanking();
     }
 }
