@@ -4,17 +4,16 @@ import java.util.*;
 
 public class Cars {
     private Collection<Car> listCarOriginal;
-    private Map<Model, Collection<Car>> map;
-    private Map<Integer, Collection<Car>> mapYear;
-    private Map<Model, Map<Integer, Collection<Car>>> mapModel;
+//    private Map<Integer, Collection<Car>> mapUpYear;
+//    private Map<Integer, Collection<Car>> mapUpIntervalYear;
 
     public Cars() {
         super();
         listCarOriginal = new ArrayList<>();
-        map = new HashMap<>();
-        mapYear = new HashMap<>();
-        mapModel = new HashMap<>();
+//        mapUpYear = new TreeMap<>();
+//        mapUpIntervalYear = new HashMap<>();
 
+        listCarOriginal.add(new Car(Model.AUDI, "RS6 Avant by ABT (C8)", 2020));
         listCarOriginal.add(new Car(Model.AUDI, "RS6 Avant by ABT (C8)", 2020));
         listCarOriginal.add(new Car(Model.AUDI, "Q7 55 TFSI e Quattro S-Line (4M) (UK)", 1998));
         listCarOriginal.add(new Car(Model.AUDI, "A7 Sportback 55 TFSI e Quattro S-Line (UK)", 2020));
@@ -22,7 +21,8 @@ public class Cars {
         listCarOriginal.add(new Car(Model.BMW, "X7 M50i (G07) (JP)", 2019));
     }
 
-    public void makeGroup() {
+    public Map<Model, Collection<Car>> makeGroup() {
+        Map<Model, Collection<Car>> map = new HashMap<>();
         for (Car c : listCarOriginal) {
             Collection<Car> listCar = map.get(c.getModel());
             if (listCar == null) {
@@ -31,27 +31,40 @@ public class Cars {
             }
             listCar.add(c);
         }
+        return map;
     }
 
-    public void yearPlanking() {
+    public Map<Model, Map<Integer, Collection<Car>>> yearPlanking(Map<Model, Collection<Car>> map) {
+        CarComparator carComparator = new CarComparator();
+        YearComparator yearComparator = new YearComparator();
+        ModelComparator modelComparator = new ModelComparator();
+        Map<Model, Map<Integer, Collection<Car>>> mapModel = new TreeMap<>(modelComparator);
+//        TreeSet<Collection<Car>> treeSet = new TreeSet<>();
         for (Map.Entry<Model, Collection<Car>> entry : map.entrySet()) {
+            Map<Integer, Collection<Car>> mapYear = new TreeMap<>(yearComparator);
             Model model = entry.getKey();
             Collection<Car> cars = entry.getValue();
             for (Car car : cars) {
-                Collection<Car> listCar = mapYear.get(car.getYear());
                 int year = car.getYear();
+                Collection<Car> listCar = mapYear.get(year);
                 if (listCar == null) {
                     listCar = new ArrayList<>();
                     mapYear.put(year, listCar);
                 }
                 listCar.add(car);
+                Collections.sort((List) listCar, carComparator);
             }
             mapModel.put(model, mapYear);
         }
+        return mapModel;
     }
 
-    public void yearUpPlanking() {
-
-    }
+//    public void takeYearInterval(int yearStart, int yearEnd) {
+//        for (Map.Entry<Integer, Collection<Car>> entry : mapUpYear.entrySet()) {
+//            if (yearStart <= entry.getKey() && entry.getKey() <= yearEnd) {
+//                mapUpIntervalYear.put(entry.getKey(), entry.getValue());
+//            }
+//        }
+//    }
 
 }
