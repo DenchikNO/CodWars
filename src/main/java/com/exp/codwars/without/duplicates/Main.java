@@ -1,4 +1,4 @@
-package com.exp.codwars.withoutduplicates;
+package com.exp.codwars.without.duplicates;
 
 public class Main {
     public static void main(String[] args) {

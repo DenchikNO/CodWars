@@ -55,14 +55,24 @@ public class Cars {
         return mapModel;
     }
 
-    public void takeYearInterval(int yearStart, int yearEnd, Map<Model, Map<Integer, Collection<Car>>> mapModel) {
-        Map<Integer, Collection<Car>> mapUpIntervalYear = new HashMap<>();;
+    public void takeYearInterval(int yearStart, int yearEnd,
+                                 Map<Model, Map<Integer, Collection<Car>>> mapModel) {
+        Map<Integer, Collection<Car>> mapUpIntervalYear = new HashMap<>();
         for (Map.Entry<Model, Map<Integer, Collection<Car>>> entry : mapModel.entrySet()) {
             Map<Integer, Collection<Car>> mapYear = entry.getValue();
-            for (Map.Entry<Integer, Collection<Car>> e : mapYear.entrySet()){
+            for (Map.Entry<Integer, Collection<Car>> e : mapYear.entrySet()) {
                 if (yearStart <= e.getKey() && e.getKey() <= yearEnd) {
                     mapUpIntervalYear.put(e.getKey(), e.getValue());
                 }
+            }
+        }
+    }
+
+    public void takeYearIntervalList(int yearStart, int yearEnd) {
+        List<Car> listCar = new ArrayList<>();
+        for (Car car : listCarOriginal) {
+            if (yearStart <= car.getYear() && car.getYear() <= yearEnd) {
+                listCar.add(car);
             }
         }
     }

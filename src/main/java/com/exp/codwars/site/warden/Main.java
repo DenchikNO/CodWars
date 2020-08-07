@@ -1,4 +1,4 @@
-package com.exp.codwars.sitewarden;
+package com.exp.codwars.site.warden;
 
 public class Main {
     public static void main(String[] args) {

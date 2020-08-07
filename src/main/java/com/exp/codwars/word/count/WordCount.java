@@ -1,4 +1,4 @@
-package com.exp.codwars.wordcount;
+package com.exp.codwars.word.count;
 
 public class WordCount {
     public static void main(String[] args) {

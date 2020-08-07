@@ -1,4 +1,4 @@
-package com.exp.codwars.wordcount;
+package com.exp.codwars.word.count;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,4 +33,5 @@ public class EnglishWords {
                 .toCharArray();
         takeCharParagraph(charParagraph);
     }
+
 }

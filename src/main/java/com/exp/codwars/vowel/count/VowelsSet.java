@@ -1,4 +1,4 @@
-package com.exp.codwars.vowelcount;
+package com.exp.codwars.vowel.count;
 
 import java.util.HashSet;
 import java.util.Set;

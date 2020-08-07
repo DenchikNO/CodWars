@@ -1,7 +1,4 @@
-package com.exp.codwars.vowelcount;
-
-import java.util.HashSet;
-import java.util.Set;
+package com.exp.codwars.vowel.count;
 
 public class Vowels implements VowelsCounter {
 

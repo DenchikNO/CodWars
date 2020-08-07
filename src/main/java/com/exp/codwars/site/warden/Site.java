@@ -1,4 +1,4 @@
-package com.exp.codwars.sitewarden;
+package com.exp.codwars.site.warden;
 
 import java.util.HashMap;
 import java.util.Map;

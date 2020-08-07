@@ -1,4 +1,4 @@
-package com.exp.codwars.withoutduplicates;
+package com.exp.codwars.without.duplicates;
 
 import java.util.*;
 

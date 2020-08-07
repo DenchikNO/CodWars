@@ -1,4 +1,4 @@
-package com.exp.codwars.mapreverse;
+package com.exp.codwars.map.reverse;
 
 import java.util.HashMap;
 import java.util.Map;
