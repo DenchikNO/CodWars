@@ -1,1 +1,1 @@
-a task from https://www.codewars.com
+A task from https://www.codewars.com
