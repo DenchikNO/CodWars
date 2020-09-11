@@ -67,12 +67,16 @@ public class Cars {
             }
         }
     }
-
-    public void takeYearIntervalList(int yearStart, int yearEnd) {
-        List<Car> listCar = new ArrayList<>();
-        for (Car car : listCarOriginal) {
-            if (yearStart <= car.getYear() && car.getYear() <= yearEnd) {
-                listCar.add(car);
+    
+    public void takeYearIntervalList(int yearStart, int yearEnd,
+                                     Map<Model, Map<Integer, Collection<Car>>> mapModel) {
+        List<Collection<Car>> listCar = new ArrayList<>();
+        for (Map.Entry<Model, Map<Integer, Collection<Car>>> entry : mapModel.entrySet()) {
+            Map<Integer, Collection<Car>> mapYear = entry.getValue();
+            for (Map.Entry<Integer, Collection<Car>> e : mapYear.entrySet()) {
+                if (yearStart <= e.getKey() && e.getKey() <= yearEnd) {
+                    listCar.add(e.getValue());
+                }
             }
         }
     }

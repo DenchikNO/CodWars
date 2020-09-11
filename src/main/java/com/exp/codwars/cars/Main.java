@@ -8,6 +8,6 @@ public class Main {
         Cars cars = new Cars();
         Map<Model, Map<Integer, Collection<Car>>> modelMapMap = cars.yearPlanking(cars.makeGroup());
         cars.takeYearInterval(1973, 2020, modelMapMap);
-        cars.takeYearIntervalList(1973, 2019);
+        cars.takeYearIntervalList(2019, 2020, modelMapMap);
     }
 }
